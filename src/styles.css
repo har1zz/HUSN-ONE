@@ -1,0 +1,91 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource-variable/jost";
+@import "@fontsource/noto-nastaliq-urdu/arabic-400.css";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Cormorant Garamond Variable", Georgia, serif;
+  --font-sans: "Jost Variable", sans-serif;
+  --font-script: "Noto Nastaliq Urdu", serif;
+}
+
+:root {
+  --radius: 0.4rem;
+  --background: oklch(0.975 0.012 79);
+  --foreground: oklch(0.24 0.035 23);
+  --card: oklch(0.99 0.006 78);
+  --card-foreground: oklch(0.24 0.035 23);
+  --popover: oklch(0.99 0.006 78);
+  --popover-foreground: oklch(0.24 0.035 23);
+  --primary: oklch(0.35 0.095 18);
+  --primary-foreground: oklch(0.98 0.013 79);
+  --secondary: oklch(0.91 0.025 34);
+  --secondary-foreground: oklch(0.29 0.06 21);
+  --muted: oklch(0.94 0.015 75);
+  --muted-foreground: oklch(0.47 0.025 24);
+  --accent: oklch(0.85 0.06 14);
+  --accent-foreground: oklch(0.27 0.055 20);
+  --destructive: oklch(0.55 0.18 25);
+  --border: oklch(0.84 0.025 49);
+  --input: oklch(0.84 0.025 49);
+  --ring: oklch(0.49 0.08 17);
+  --ink-soft: oklch(0.42 0.035 24);
+  --wine-deep: oklch(0.27 0.068 17);
+  --rose-soft: oklch(0.87 0.059 16);
+  --gold-soft: oklch(0.73 0.075 74);
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { min-width: 320px; background: var(--background); color: var(--foreground); font-family: "Jost Variable", sans-serif; font-weight: 350; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--rose-soft); color: var(--wine-deep); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.font-display { font-family: "Cormorant Garamond Variable", Georgia, serif; }
+.font-script { font-family: "Noto Nastaliq Urdu", serif; }
+.husn-page-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.husn-hero { position: relative; min-height: min(780px, calc(100svh - 210px)); overflow: hidden; isolation: isolate; background: var(--wine-deep); }
+.husn-hero::after { position: absolute; z-index: -1; inset: 0; content: ""; background: linear-gradient(90deg, color-mix(in oklch, var(--wine-deep) 78%, transparent) 0%, color-mix(in oklch, var(--wine-deep) 52%, transparent) 42%, color-mix(in oklch, var(--wine-deep) 13%, transparent) 100%); }
+.husn-hero-image { position: absolute; z-index: -2; inset: 0 0 0 auto; width: 68%; height: 100%; object-fit: cover; object-position: 54% 4%; }
+.husn-wordmark { display: flex; align-items: center; gap: .55rem; font-family: "Cormorant Garamond Variable", Georgia, serif; font-size: 1.75rem; font-style: italic; }
+.husn-script-mark { font-family: "Noto Nastaliq Urdu", serif; font-size: 1.5rem; line-height: 1; }
+.husn-link { position: relative; display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; color: var(--ink-soft); font-size: .77rem; text-transform: uppercase; transition: color 180ms ease; }
+.husn-link:hover { color: var(--primary); }
+.husn-button { min-height: 48px; padding-inline: 1.35rem; border-radius: var(--radius); background: var(--primary); color: var(--primary-foreground); font-size: .76rem; font-weight: 450; text-transform: uppercase; transition: background 180ms ease, color 180ms ease; }
+.husn-button:hover { background: var(--wine-deep); color: var(--primary-foreground); }
+.husn-button-outline { min-height: 48px; padding-inline: 1.35rem; border: 1px solid color-mix(in oklch, currentColor 45%, transparent); border-radius: var(--radius); background: transparent; color: inherit; font-size: .76rem; font-weight: 450; text-transform: uppercase; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
+.husn-button-outline:hover { border-color: var(--primary); background: var(--primary); color: var(--primary-foreground); }
+.husn-category-tile { position: relative; display: flex; align-items: end; overflow: hidden; aspect-ratio: 4 / 5; background: var(--secondary); }
+.husn-category-tile img, .husn-product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 650ms cubic-bezier(.2,.7,.2,1); }
+.husn-category-tile:hover img, .husn-product-card:hover .husn-product-image img { transform: scale(1.035); }
+.husn-category-tile::after { position: absolute; inset: 30% 0 0; content: ""; background: linear-gradient(0deg, color-mix(in oklch, var(--wine-deep) 76%, transparent), transparent); }
+.husn-product-image { overflow: hidden; aspect-ratio: 3 / 4; background: var(--secondary); }
+.husn-selection-chip { display: inline-flex; align-items: center; min-height: 30px; padding-inline: .65rem; border: 1px solid var(--border); border-radius: 999px; color: var(--ink-soft); font-size: .75rem; }
+.husn-form-field { min-height: 48px; width: 100%; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: .7rem .85rem; color: var(--foreground); }
+.husn-footer { background: var(--wine-deep); color: var(--primary-foreground); }
+@media (max-width: 640px) { .husn-hero { min-height: min(640px, calc(100svh - 200px)); } .husn-hero-image { inset: 0; width: 100%; object-position: 47% 38%; } .husn-hero::after { background: linear-gradient(90deg, color-mix(in oklch, var(--wine-deep) 68%, transparent) 0%, color-mix(in oklch, var(--wine-deep) 28%, transparent) 100%); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
